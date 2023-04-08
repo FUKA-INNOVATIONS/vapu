@@ -11,14 +11,10 @@ on:
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-18.04
-    # 1. if check ensures that the step is executed only
-    # when the code is being merged or pushed to the main branch
-    # When a pull request is merged, the name of the event is somehow paradoxically push.
-    # 2. Skip deployment if commit message contains #skip
     steps:
       # The uses keyword tells the workflow to run a specific action
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
       - name: npm install
