@@ -9,7 +9,7 @@ on:
     types: [ opened, synchronize ]
 
 jobs:
-  simple_deployment_pipeline:
+  deployment_pipeline:
     runs-on: ubuntu-latest
     steps:
       # The uses keyword tells the workflow to run a specific action
