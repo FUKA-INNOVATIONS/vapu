@@ -1,4 +1,4 @@
-name: Deployment pipeline
+name: Vapu expo app deployment pipeline
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   simple_deployment_pipeline:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       # The uses keyword tells the workflow to run a specific action
       - uses: actions/checkout@v2
