@@ -22,11 +22,10 @@ jobs:
       #- name: lint
       #  run: npm run lint
 
-      # Todo: test app - name: test run: npm run test
-      # Todo: - name: Deploy to expo
-
       - name: npm test
         run: npm test
+
+      # Todo: - name: Deploy to expo
 
       # Todo: Add versioning / Different versioning for various platforms should be considered
       # Increase the version when a pull request is merged into the main branch
