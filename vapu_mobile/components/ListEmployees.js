@@ -30,16 +30,28 @@ const ListEmployees = (props) => {
   const [searchText, setSearchText] = useState("");
   const [filteredData, setFilteredData] = useState(data);
 
-  
+  useEffect(() => {
+    const results = data.filter((item) =>
+      item.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredData(results);
+  }, [searchText]);
 
   const { data, setData } = Employees();
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.item}>
       <Image source={item.image} style={styles.image} />
-      <View>
+      <View style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center'}}>
         <Text style={styles.text}>{item.name}</Text>
         <Text style={styles.textInfo}>{item.työtitteli}</Text>
-        <AirbnbRating count={5} defaultRating={item.rating} size={20} />
+        <AirbnbRating
+          count={5}
+          defaultRating={item.rating}
+          size={20}
+          reviews={[""]}
+          style={styles.rating}
+        />
+        <Text>{item.kielitaito}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -131,6 +143,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     color: "#424242",
   },
+  rating: {},
 });
 
 export default ListEmployees;
