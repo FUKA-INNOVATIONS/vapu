@@ -12,7 +12,7 @@ import {
 import { AirbnbRating } from "react-native-ratings";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import { Employees } from "./Employees";
+import { Employees } from "../utils/lists";
 import { hexToRgba } from "./utils";
 
 const windowHeight = Dimensions.get("window").height;
@@ -51,7 +51,7 @@ const ListEmployees = (props) => {
           reviews={[""]}
           style={styles.rating}
         />
-        <Text>{item.kielitaito}</Text>
+        <Text style={styles.kielitaito}>{item.kielitaito}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -143,7 +143,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     color: "#424242",
   },
-  rating: {},
+  rating: {
+    
+  },
+  kielitaito: {
+
+  }
 });
 
 export default ListEmployees;

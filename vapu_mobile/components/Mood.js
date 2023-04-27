@@ -8,7 +8,7 @@ import {
   Dimensions,
   Image,
 } from "react-native";
-import { Tunnetilat } from "./TunneLista";
+import { Tunnetilat } from "../utils/lists";
 
 const windowHeight = Dimensions.get("window").height;
 

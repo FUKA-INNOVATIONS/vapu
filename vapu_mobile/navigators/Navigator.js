@@ -4,10 +4,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import PropTypes from "prop-types";
 import Home from "../components/Home";
-import Login from "../components/Login";
+import Login from "../views/Login_view";
 import Mood from "../components/Mood";
 import Register from '../components/RegisterScreen';
 import ListEmployees from '../components/ListEmployees';
+import Asiakaspalvelu from "../components/Asiakaspalvelu";
 
 
 const Stack = createNativeStackNavigator();
@@ -31,6 +32,7 @@ const StackScreen = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Register" component={Register}/>
       <Stack.Screen name="ListEmployees" component={ListEmployees}/>
+      <Stack.Screen name="Asiakaspalvelu" component={Asiakaspalvelu}/>
     </Stack.Navigator>
   );
 };

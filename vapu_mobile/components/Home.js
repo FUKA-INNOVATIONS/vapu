@@ -9,7 +9,7 @@ import {
   Dimensions,
   ScrollView,
 } from "react-native";
-import { useMyData } from "./ActionsList";
+import { useMyData } from "../utils/lists";
 import { hexToRgba } from "./utils";
 import { FontFamily } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -39,7 +39,7 @@ const Home = (props) => {
         navigation.navigate("Home");
         break;
       case "4":
-        navigation.navigate("Login");
+        navigation.navigate("Asiakaspalvelu");
         break;
       case "5":
         navigation.navigate("Mieliala");

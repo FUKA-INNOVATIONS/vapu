@@ -1,36 +1,51 @@
-/*import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-} from 'react-native';
-import PropTypes from 'prop-types';   
+import React, { useContext, useEffect, useState } from "react";
+import { View } from "react-native";
+import PropTypes from "prop-types";
+import LoginForm from "../components/Login";
+import RegisterForm from "../components/RegisterScreen";
+import { Button, Text } from "@rneui/themed";
+import { hexToRgba } from "../components/utils";
 
-const Login = ({navigation}) => { // props is needed for navigation   
-  const logIn = () => {
-      console.log('Button pressed');
-  };
+const Login_view = ({ navigation }) => {
+  const [showRegForm, setShowRegForm] = useState(false);
+
   return (
-    <View style={styles.container}>
-      <Text>Login</Text>
-      <Button title="Sign in!" onPress={logIn}/>
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
+      <View
+        style={{
+          flex: 10,
+        }}
+      >
+        {showRegForm ? <RegisterForm /> : <LoginForm />}
+        <View
+          style={{ flex: 0.5, justifyContent: "flex-end", marginBottom: 20 }}
+        >
+          <Button
+            buttonStyle={{
+              width: 300,
+              height: 40,
+              alignSelf: "center",
+            }}
+            title={
+              showRegForm
+                ? "Already have an account? Sign in!"
+                : "Don't have an account? Sign up!"
+            }
+            titleStyle={{
+              color: 'black',
+            }}
+            onPress={() => {
+              setShowRegForm(!showRegForm);
+            }}
+          ></Button>
+        </View>
+      </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-Login.propTypes = {
-  navigation: PropTypes.object,
-};
-
-export default Login;
-*/
+export default Login_view;
