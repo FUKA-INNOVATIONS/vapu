@@ -1,20 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Linking,
+} from "react-native";
 
 const Asiakaspalvelu = () => {
   const vapu = require("../assets/vapu_icon.png");
+  const red = require("../assets/reddot.png");
+  const green = require("../assets/greendot.png");
+
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenChat, setIsOpenChat] = useState(false);
 
   useEffect(() => {
     const date = new Date();
     const hours = date.getHours();
     const minutes = date.getMinutes();
-    if (hours >= 8 && hours < 17) {
+    if (hours >= 8 && hours < 16) {
       setIsOpen(true);
     } else {
       setIsOpen(false);
     }
+    if (hours >= 8 && hours < 21) {
+      setIsOpenChat(true);
+    } else {
+      setIsOpenChat(false);
+    }
   }, []);
+
+  const handleCallPress = () => {
+    const phoneNumber = "040 153 0728"; // Replace with your desired phone number
+    Linking.openURL(`telprompt:${phoneNumber}`);
+  };
 
   return (
     <View
@@ -24,40 +45,79 @@ const Asiakaspalvelu = () => {
         justifyContent: "center",
       }}
     >
-      <Image source={vapu} style={styles.imageMain}></Image>
-      <Image source={vapu} style={styles.image2nd}></Image>
-      <Image source={vapu} style={styles.image3rd}></Image>
+      <Image source={vapu} style={styles.imageMain} />
+      <Image source={vapu} style={styles.image2nd} />
+      <Image source={vapu} style={styles.image3rd} />
 
       <Text style={styles.title}>Asiakaspalvelu</Text>
       <Text style={styles.desc}>
-        Avoinna arkisin joka päivä 8:00-17:00
+        Lorem ipsum on 1500-luvulta lähtien olemassa ollut teksti, jota käytetään usein täysa..
       </Text>
 
       {isOpen ? (
         <View style={styles.lowerTitle}>
           <Text style={styles.call}>Soita</Text>
-          <Text style={styles.status}>Auki</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "flex-end",
+            }}
+          >
+            <Text style={styles.status}>Auki</Text>
+            <Image style={styles.dot} source={green} />
+          </View>
         </View>
       ) : (
         <View style={styles.lowerTitle}>
           <Text style={styles.call}>Soita</Text>
-          <Text style={styles.status}>Suljettu</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "flex-end",
+            }}
+          >
+            <Text style={styles.status}>Suljettu</Text>
+            <Image style={styles.dot} source={red} />
+          </View>
         </View>
       )}
 
-      <Text style={styles.desc}>
-        Lorem ipsum on 1500-luvulta lähtien olemassa ollut teksti.
-      </Text>
-      <TouchableOpacity style={styles.button}>
+      <Text style={styles.desc}>Avoinna arkisin joka päivä 8:00-16:00</Text>
+      <TouchableOpacity style={styles.button} onPress={handleCallPress}>
         <Text style={styles.buttontxt}>Aloita puhelu</Text>
       </TouchableOpacity>
-      <View style={styles.lowerTitle}>
-        <Text style={styles.call}>Chattaile</Text>
-        <Text style={styles.status}>Auki</Text>
-      </View>
-      <Text style={styles.desc}>
-        Lorem ipsum on 1500-luvulta lähtien olemassa ollut teksti.
-      </Text>
+      {isOpenChat ? (
+        <View style={styles.lowerTitle}>
+          <Text style={styles.call}>Chattaile</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "flex-end",
+            }}
+          >
+            <Text style={styles.status}>Auki</Text>
+            <Image style={styles.dot} source={green} />
+          </View>
+        </View>
+      ) : (
+        <View style={styles.lowerTitle}>
+          <Text style={styles.call}>Chattaile</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "flex-end",
+            }}
+          >
+            <Text style={styles.status}>Suljettu</Text>
+            <Image style={styles.dot} source={red} />
+          </View>
+        </View>
+      )}
+      <Text style={styles.desc}>Avoinna arkisin joka päivä 8:00-21:00</Text>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttontxt}>Aloita keskustelu</Text>
       </TouchableOpacity>
@@ -145,6 +205,11 @@ const styles = StyleSheet.create({
   buttontxt: {
     color: "#3B88C3",
     fontSize: 25,
+  },
+  dot: {
+    height: 15,
+    width: 15,
+    marginLeft: 5,
   },
 });
 export default Asiakaspalvelu;

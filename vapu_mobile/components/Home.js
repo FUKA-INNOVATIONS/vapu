@@ -35,6 +35,9 @@ const Home = (props) => {
       case '1': 
         navigation.navigate('ListEmployees');
         break;
+        case '2': 
+        navigation.navigate('Aktiviteetit');
+        break;
       case "3":
         navigation.navigate("Home");
         break;
@@ -77,7 +80,7 @@ const Home = (props) => {
       >
         <TouchableOpacity style={styles.nextActivity} onPress={handlePress}>
           <Text style={styles.today}>Tänään on bingopäivä!</Text>
-          <Image source={require("../assets/bingo.png")} style={styles.bingo} />
+          <Image source={require("../assets/aktiviteetit/bingoa.png")} style={styles.bingo} />
           <Text style={styles.description}> Antti hakee sinut 13:00 </Text>
         </TouchableOpacity>
       </View>

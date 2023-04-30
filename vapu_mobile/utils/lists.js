@@ -66,3 +66,81 @@ export const Tunnetilat = () => {
   
     return { data, setData };
   };
+
+
+  export const Aktiviteetit = () => {
+    const [data, setData] = useState([
+      {
+        id: "1",
+        name: "Puistoon",
+        image: require("../assets/aktiviteetit/puistoon.png"),
+      },
+      {
+        id: "2",
+        name: "Kahville",
+        image: require("../assets/aktiviteetit/kahville.png"),
+      },
+      {
+        id: "3",
+        name: "Rannalle",
+        image: require("../assets/aktiviteetit/rannalle.png"),
+      },
+      {
+        id: "4",
+        name: "Kauppaan",
+        image: require("../assets/aktiviteetit/kauppaan.png"),
+      },
+      {
+        id: "5",
+        name: "Kampaamo",
+        image: require("../assets/aktiviteetit/kampaamoon.png"),
+      },
+      {
+        id: "6",
+        name: "Lasilliselle",
+        image: require("../assets/aktiviteetit/lasilliselle.png"),
+      },
+      {
+        id: "7",
+        name: "Pizzalle",
+        image: require("../assets/aktiviteetit/pizzalle.png"),
+      },
+      {
+        id: "8",
+        name: "Kävelylle",
+        image: require("../assets/aktiviteetit/kävelylle.png"),
+      },
+      {
+        id: "9",
+        name: "Jäätelölle",
+        image: require("../assets/aktiviteetit/jäätelölle.png"),
+      },
+      {
+        id: "10",
+        name: "Digimaailma",
+        image: require("../assets/aktiviteetit/digimaailma.png"),
+      },
+      {
+        id: "11",
+        name: "Lauletaan",
+        image: require("../assets/aktiviteetit/lauletaan.png"),
+      },
+      {
+        id: "12",
+        name: "Bingoa",
+        image: require("../assets/aktiviteetit/bingoa.png"),
+      },
+      {
+        id: "13",
+        name: "Palapeliä",
+        image: require("../assets/aktiviteetit/palapeliä.png"),
+      },
+      {
+        id: "14",
+        name: "Tanssitaan",
+        image: require("../assets/aktiviteetit/tanssitaan.png"),
+      },
+    ]);
+  
+    return { data, setData };
+  };
