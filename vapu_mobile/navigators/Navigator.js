@@ -9,7 +9,7 @@ import Mood from "../components/Mood";
 import Register from '../components/RegisterScreen';
 import ListEmployees from '../components/ListEmployees';
 import Asiakaspalvelu from "../components/Asiakaspalvelu";
-import ValitseAktiviteetti from "../components/ValitseAktiviteetti";
+import AktiviteettiLista from "../views/ValitseAktiviteetti";
 
 
 const Stack = createNativeStackNavigator();
@@ -34,7 +34,7 @@ const StackScreen = () => {
       <Stack.Screen name="Register" component={Register}/>
       <Stack.Screen name="ListEmployees" component={ListEmployees}/>
       <Stack.Screen name="Asiakaspalvelu" component={Asiakaspalvelu}/>
-      <Stack.Screen name="Aktiviteetit" component={ValitseAktiviteetti}/>
+      <Stack.Screen name="Aktiviteetit" component={AktiviteettiLista}/>
     </Stack.Navigator>
   );
 };

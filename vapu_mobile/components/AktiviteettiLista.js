@@ -15,10 +15,10 @@ const windowHeight = Dimensions.get("window").height;
 const flatListHeight = windowHeight * 0.17;
 const imageHeight = windowHeight * 0.1;
 
-const ValitseAktiviteetti = (props) => {
+/*const ValitseAktiviteetti = (props) => {
   const { data, setData } = Aktiviteetit();
-
-  const renderItem = ({ item}) => {
+*/
+  const ValitseAktiviteetti = ({ item}) => {
     const itemStyle = styles.item;
     console.log(item.id);
     return (
@@ -30,18 +30,19 @@ const ValitseAktiviteetti = (props) => {
       </TouchableOpacity>
     );
   };
-
+/*
   return (
     <View style={styles.container}>
       <FlatList
-        data={data}
+        data={data.slice(0, 7)}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
       />
     </View>
   );
-};
+  
+};*/
 
 /*
 const renderItem = ({ item }) => {
