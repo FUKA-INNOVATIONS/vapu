@@ -33,7 +33,7 @@ const Asiakaspalvelu = () => {
   }, []);
 
   const handleCallPress = () => {
-    const phoneNumber = "040 153 0728"; // Replace with your desired phone number
+    const phoneNumber = "0123"; // Replace with your desired phone number
     Linking.openURL(`telprompt:${phoneNumber}`);
   };
 

@@ -27,6 +27,79 @@ export const useMyData = () => {
   return { data, setData };
 };
 
+export const Milloin = () => {
+  const [data, setData] = useState([
+    {
+      id: "1",
+      name: "Tänään",
+    },
+    {
+      id: "2",
+      name: "Huomenna",
+    },
+    {
+      id: "3",
+      name: "Kalenteri",
+    },
+  ]);
+
+  return { data, setData };
+};
+
+export const Ajat = () => {
+  const [time, setTime] = useState([
+    {
+      id: "1",
+      aika: "8:00",
+    },
+    {
+      id: "2",
+      aika: "9:00",
+    },
+    {
+      id: "3",
+      aika: "10:00",
+    },
+    {
+      id: "4",
+      aika: "11:00",
+    },
+    {
+      id: "5",
+      aika: "12:00",
+    },
+    {
+      id: "6",
+      aika: "13:00",
+    },
+    {
+      id: "7",
+      aika: "14:00",
+    },
+    {
+      id: "8",
+      aika: "15:00",
+    },
+    {
+      id: "9",
+      aika: "16:00",
+    }, 
+    {
+      id: "10",
+      aika: "17:00",
+    },
+    {
+      id: "11",
+      aika: "18:00",
+    },
+    {
+      id: "12",
+      aika: "19:00",
+    },
+  ]);
+
+  return { time, setTime };
+};
 
 export const Employees = () => {
   const [data, setData] = useState([
@@ -149,7 +222,6 @@ export const Tunnetilat = () => {
     const [data, setData] = useState([
       {
         id: "1",
-        aktId: "1",
         name: "Eläintarha",
         image: require("../assets/paikat/eläintarha.png"),
         address: "Ehrenströmintie 3, Helsinki",
@@ -157,7 +229,6 @@ export const Tunnetilat = () => {
       },
       {
         id: "2",
-        aktId: "1",
         name: "Huvipuisto",
         image: require("../assets/paikat/huvipuisto.png"),
         address: "Ehrenströmintie 3, Helsinki",
@@ -165,7 +236,6 @@ export const Tunnetilat = () => {
       },
       {
         id: "3",
-        aktId: "1",
         name: "Puistoon kävely",
         image: require("../assets/paikat/puisto.png"),
         address: "Ehrenströmintie 3, Helsinki",

@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     marginHorizontal: 10,
     marginBottom: 0,
-    marginTop: 50,
+    marginTop: 30,
     borderRadius: 20,
   },
   image: {
@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     borderColor: "#000000",
     borderRadius: 14,
     margin: 8,
+    marginTop: 13,
     padding: 8,
   },
   searchSection: {

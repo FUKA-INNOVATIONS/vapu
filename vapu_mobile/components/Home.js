@@ -17,12 +17,13 @@ import { useNavigation } from "@react-navigation/native";
 import PropTypes from "prop-types";
 
 // Hind Siliguri
+
 const windowHeight = Dimensions.get("window").height;
 const backgroundColor = hexToRgba("#3B88C3", 0.81);
 
 const topViewHeight = windowHeight * 0.17;
-const buttonHeight = windowHeight * 0.07; // 2% of the screen height
-const activityHeight = windowHeight * 0.23; // 2% of the screen height
+const buttonHeight = windowHeight * 0.07; 
+const activityHeight = windowHeight * 0.23; 
 
 //const buttonWidth = windowWidth * 0.07; // 2% of the screen height
 
