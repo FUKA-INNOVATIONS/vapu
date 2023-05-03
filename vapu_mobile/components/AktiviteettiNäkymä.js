@@ -12,6 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Paikat } from "../utils/lists";
 
 const windowHeight = Dimensions.get("window").height;
+const { width: screenWidth } = Dimensions.get("window");
 
 const flatListHeight = windowHeight * 0.17;
 const imageHeight = windowHeight * 0.3;
@@ -21,15 +22,33 @@ const AktiviteettiNäkymä = ({ route }) => {
   const { data, setData } = Paikat();
   const [int, setInt] = useState(1);
   const [dataSlice, setDataSlice] = useState(data.slice(0, 1));
+  const style = id === 1 ? styles.lastItem : styles.item;
 
   const nextItem = () => {
     if (int === 1) {
       setDataSlice(data.slice(1, 2));
       setInt(2);
-      console.log(data.length);
+      console.log("intti" + int);
+      console.log("data" + data.length);
     } else if (int === 2) {
-      setDataSlice(data.slice(2, 3));
+      console.log("intti" + int);
+      console.log("data" + data.length);
       setInt(3);
+      setDataSlice(data.slice(2, 3));
+    }
+  };
+
+  const lastItem = () => {
+    if (int === 3) {
+      setDataSlice(data.slice(1, 2));
+      setInt(2);
+      console.log("intti" + int);
+      console.log("data" + data.length);
+    } else if (int === 2) {
+      console.log("intti" + int);
+      console.log("data" + data.length);
+      setInt(1);
+      setDataSlice(data.slice(0, 1));
     }
   };
 
@@ -41,6 +60,9 @@ const AktiviteettiNäkymä = ({ route }) => {
       <Image source={item.image} style={styles.image}></Image>
       <Text style={styles.address}>{item.address}</Text>
       <Text style={styles.description}>{item.description}</Text>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Valitse aktiviteetti</Text>
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 
@@ -52,24 +74,42 @@ const AktiviteettiNäkymä = ({ route }) => {
         keyExtractor={(item) => item.id}
         numColumns={1}
       />
-      {int === data.length ? (
-        <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: 'space-between'}}>
-          <TouchableOpacity style={styles.buttonLeft}>
-            <Text style={{ textAlign: "center", marginTop: 50 }}>Nappi</Text>
+      <View style={styles.buttons2}></View>
+      {int === 1 && (
+        <TouchableOpacity style={styles.buttonRight} onPress={nextItem}>
+          <Image
+            style={styles.imageRight}
+            source={require("../assets/arrowRight.png")}
+          />
+        </TouchableOpacity>
+      )}
+      {int !== 1 && int !== data.length && (
+        <View style={styles.buttons2}>
+          <TouchableOpacity style={styles.buttonLeft} onPress={lastItem}>
+            <Image
+              source={require("../assets/arrowLeft.png")}
+              style={styles.imageLeft}
+            />
           </TouchableOpacity>
-
-
-          <TouchableOpacity style={styles.buttonNav}>
-            <Text style={{textAlign: "center", marginTop: 50}}>Nappi</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.buttonRight} onPress={nextItem}>
-            <Text style={{ textAlign: "center", marginTop: 50 }}>Nappi</Text>
+          <TouchableOpacity onPress={nextItem} style={styles.buttonRight}>
+            <Image
+              source={require("../assets/arrowRight.png")}
+              style={styles.imageRight}
+            />
           </TouchableOpacity>
         </View>
-      ) : (
-        <TouchableOpacity style={styles.buttonRight} onPress={nextItem}>
-          <Text style={{ textAlign: "center", marginTop: 50 }}>Nappi</Text>
+      )}
+      {int === data.length && (
+        <TouchableOpacity style={styles.buttonLeft} onPress={lastItem}>
+          <Image
+            source={require("../assets/arrowLeft.png")}
+            style={{
+              height: 120,
+              aspectRatio: 1,
+              marginLeft: 55,
+              marginTop: 35,
+            }}
+          />
         </TouchableOpacity>
       )}
     </View>
@@ -110,8 +150,8 @@ const styles = StyleSheet.create({
   buttonRight: {
     height: 150,
     width: 150,
-    right: -30,
-    bottom: -30,
+    right: -50,
+    bottom: -40,
     alignSelf: "flex-end",
     backgroundColor: "#EDEAEA",
     borderRadius: 80,
@@ -119,17 +159,44 @@ const styles = StyleSheet.create({
   buttonLeft: {
     height: 150,
     width: 150,
-    left: -30,
-    bottom: -30,
+    left: -50,
+    bottom: -40,
     alignSelf: "flex-start",
     backgroundColor: "#EDEAEA",
     borderRadius: 80,
   },
-  buttonNav: {
-    height: 150,
-    width: 150,
-    alignSelf: 'center',
-  }
+  imageRight: {
+    height: 120,
+    aspectRatio: 1,
+    marginTop: 30,
+    marginLeft: 30
+  },
+  imageLeft: {
+    height: 120,
+    aspectRatio: 1,
+    marginLeft: 50,
+    marginTop: 30,
+  },
+  buttons2: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: screenWidth * 0.95,
+  },
+
+  button: {
+    width: 200,
+    height: 50,
+    backgroundColor: "#3B88C3",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 15,
+    marginTop: 25,
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 20,
+  },
 });
 export default AktiviteettiNäkymä;
 
@@ -146,3 +213,27 @@ export default AktiviteettiNäkymä;
         </View>
       )}
 */
+/*
+{int === data.length ? (
+        <View
+          style={{
+            position: 'absolute',
+            flexDirection: "row",
+            alignItems: "stretch",
+            justifyContent: "space-between",
+          }}
+        >
+          <TouchableOpacity style={styles.buttonLeft}>
+            <Text style={{ textAlign: "center", marginTop: 50 }}>Nappi</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.buttonRight} onPress={nextItem}>
+            <Text style={{ textAlign: "center", marginTop: 50 }}>Nappi</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <TouchableOpacity style={styles.buttonRight} onPress={nextItem}>
+          <Text style={{ textAlign: "center", marginTop: 50 }}>Nappi</Text>
+        </TouchableOpacity>
+      )}
+      */
