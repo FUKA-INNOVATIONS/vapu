@@ -144,3 +144,35 @@ export const Tunnetilat = () => {
   
     return { data, setData };
   };
+
+  export const Paikat = () => {
+    const [data, setData] = useState([
+      {
+        id: "1",
+        aktId: "1",
+        name: "Eläintarha",
+        image: require("../assets/paikat/eläintarha.png"),
+        address: "Ehrenströmintie 3, Helsinki",
+        description: "Lorem ipsum on 1500-luvulta lähtien olemassa ollut teksti, jota käytetään usein täysa. Jota käytetään usein täysa jota käytetään usein."
+      },
+      {
+        id: "2",
+        aktId: "1",
+        name: "Huvipuisto",
+        image: require("../assets/paikat/huvipuisto.png"),
+        address: "Ehrenströmintie 3, Helsinki",
+        description: "Lorem ipsum on 1500-luvulta lähtien olemassa ollut teksti, jota käytetään usein täysa. Jota käytetään usein täysa jota käytetään usein."
+      },
+      {
+        id: "3",
+        aktId: "1",
+        name: "Puistoon kävely",
+        image: require("../assets/paikat/puisto.png"),
+        address: "Ehrenströmintie 3, Helsinki",
+        description: "Lorem ipsum on 1500-luvulta lähtien olemassa ollut teksti, jota käytetään usein täysa. Jota käytetään usein täysa jota käytetään usein."
+      },
+     
+    ]);
+  
+    return { data, setData };
+  };

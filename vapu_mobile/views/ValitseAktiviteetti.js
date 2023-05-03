@@ -15,6 +15,7 @@ const ValitseAktiviteetti = ({ navigation }) => {
   const [dataSlice, setDataSlice] = useState(data.slice(0, 7));
   const [showMore, setShowMore] = useState(false);
 
+  
   const handlePress = () => {
     showMore ? setDataSlice(data.slice(0, 7)) : setDataSlice(data.slice(7, 14));
     
@@ -67,8 +68,8 @@ const styles = StyleSheet.create({
   },
   box1: {
     flex: 1,
-    alignItems: "flex-end",
-    justifyContent: "flex-end",
+    alignSelf: "flex-end",
+    justifyContent: "center",
   },
   box2: {
     flex: 10,
@@ -78,6 +79,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 27,
     fontWeight: "bold",
+    marginBottom: 10,
+    marginRight: 40,
   },
   button: {
     height: 200,

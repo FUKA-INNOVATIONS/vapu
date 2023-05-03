@@ -8,28 +8,48 @@ import {
   Dimensions,
   Image,
 } from "react-native";
-import { Aktiviteetit } from "../utils/lists";
+import { useNavigation } from "@react-navigation/native";
 
 const windowHeight = Dimensions.get("window").height;
 
 const flatListHeight = windowHeight * 0.17;
 const imageHeight = windowHeight * 0.1;
 
-/*const ValitseAktiviteetti = (props) => {
-  const { data, setData } = Aktiviteetit();
-*/
-  const ValitseAktiviteetti = ({ item}) => {
-    const itemStyle = styles.item;
-    console.log(item.id);
-    return (
-      <TouchableOpacity style={itemStyle}>
-        <View style={styles.container}>
-          <Image source={item.image} style={styles.image}/>
-          <Text style={styles.text}>{item.name}</Text>
-        </View>
-      </TouchableOpacity>
-    );
+const ValitseAktiviteetti = ({ item }) => {
+  const navigation = useNavigation();
+
+  const handlePress = (id) => {
+    console.log(id);
+    switch (id) {
+      case '1': 
+        navigation.navigate('AktiviteettiNäkymä', {id: id});
+        break;
+        case '2': 
+        navigation.navigate('Aktiviteetit');
+        break;
+      case "3":
+        navigation.navigate("Home");
+        break;
+      case "4":
+        navigation.navigate("Asiakaspalvelu");
+        break;
+      case "5":
+        navigation.navigate("Mieliala");
+        break;
+    }
   };
+
+  const itemStyle = styles.item;
+  console.log(item.id);
+  return (
+    <TouchableOpacity style={itemStyle} onPress={() => handlePress(item.id)}>
+      <View style={styles.container}>
+        <Image source={item.image} style={styles.image} />
+        <Text style={styles.text}>{item.name}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 /*
   return (
     <View style={styles.container}>
@@ -58,7 +78,6 @@ const renderItem = ({ item }) => {
     );
   };
 */
-
 
 /* return (
     <View style={styles.container}>
@@ -92,7 +111,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.1,
     shadowRadius: 3.84,
     elevation: 5,
   },
@@ -101,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EDEAEA",
     marginTop: 5,
     height: flatListHeight,
-    aspectRatio: 2.2/1,
+    aspectRatio: 2.2 / 1,
     borderRadius: 15,
     borderRadius: 5,
     shadowColor: "#000",
@@ -120,7 +139,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 17,
     marginBottom: -10,
-  }
+  },
 });
 
 export default ValitseAktiviteetti;

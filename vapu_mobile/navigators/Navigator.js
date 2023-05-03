@@ -3,14 +3,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import PropTypes from "prop-types";
-import Home from "../components/Home";
+import Home from "../views/Home_screen";
 import Login from "../views/Login_view";
 import Mood from "../components/Mood";
 import Register from '../components/RegisterScreen';
 import ListEmployees from '../components/ListEmployees';
 import Asiakaspalvelu from "../components/Asiakaspalvelu";
 import AktiviteettiLista from "../views/ValitseAktiviteetti";
-
+import AktiviteettiNäkymä from "../components/AktiviteettiNäkymä";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +35,8 @@ const StackScreen = () => {
       <Stack.Screen name="ListEmployees" component={ListEmployees}/>
       <Stack.Screen name="Asiakaspalvelu" component={Asiakaspalvelu}/>
       <Stack.Screen name="Aktiviteetit" component={AktiviteettiLista}/>
+      <Stack.Screen name="AktiviteettiNäkymä" component={AktiviteettiNäkymä}/>
+
     </Stack.Navigator>
   );
 };
