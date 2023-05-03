@@ -173,6 +173,27 @@ export const Tunnetilat = () => {
       },
      
     ]);
-  
+
     return { data, setData };
   };
+
+
+export const Tulevat = () =>{
+  const [data, setData] = useState([
+    {
+      id:"1",
+      name: "Bingo",
+      description: "Puotilan vanhainkoti",
+      placeandtime: "18.4.2023  Klo 9.00"
+
+    },
+    {
+      id:"2",
+      name: "Kävely rannassa",
+      description: "Aurinkoranta, Vuosaari",
+      placeandtime: "19.4.2023  Klo 9.00"
+
+    },
+  ]);
+  return { data, setData };
+};

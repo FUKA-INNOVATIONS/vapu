@@ -39,7 +39,7 @@ const Home = (props) => {
         navigation.navigate('Aktiviteetit');
         break;
       case "3":
-        navigation.navigate("Home");
+        navigation.navigate("tulevatAktiviteetit");
         break;
       case "4":
         navigation.navigate("Asiakaspalvelu");

@@ -58,6 +58,11 @@ const AktiviteettiNäkymä = ({ route }) => {
             <Text style={{ textAlign: "center", marginTop: 50 }}>Nappi</Text>
           </TouchableOpacity>
 
+
+          <TouchableOpacity style={styles.buttonNav}>
+            <Text style={{textAlign: "center", marginTop: 50}}>Nappi</Text>
+          </TouchableOpacity>
+
           <TouchableOpacity style={styles.buttonRight} onPress={nextItem}>
             <Text style={{ textAlign: "center", marginTop: 50 }}>Nappi</Text>
           </TouchableOpacity>
@@ -120,6 +125,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#EDEAEA",
     borderRadius: 80,
   },
+  buttonNav: {
+    height: 150,
+    width: 150,
+    alignSelf: 'center',
+  }
 });
 export default AktiviteettiNäkymä;
 
