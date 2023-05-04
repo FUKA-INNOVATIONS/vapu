@@ -10,6 +10,7 @@ import {
 import { Milloin } from "../utils/lists";
 import { Ajat } from "../utils/lists";
 import { useNavigation } from "@react-navigation/native";
+import CurrentTime from "./TämänhetkinenAika";
 
 const windowHeight = Dimensions.get("window").height;
 const buttonHeight = windowHeight * 0.07;
@@ -22,6 +23,7 @@ export default function ValitseAika() {
   const navigation = useNavigation();
   const [selectedId, setselectedId] = useState("1");
   const [selectedTimeId, setselectedTimeId] = useState("1");
+  const [selectedTime, setselectedTime] = useState("8:00");
 
   const handlePress = (id) => {
     console.log(id);
@@ -43,7 +45,7 @@ export default function ValitseAika() {
         }
         break;
       case "3":
-        navigation.navigate("Home");
+        navigation.navigate("Kalenteri");
         break;
     }
   };
@@ -52,9 +54,11 @@ export default function ValitseAika() {
     console.log(id + " " + aika);
 
     if (id !== selectedTimeId) {
+      setselectedTime(aika);
       setselectedTimeId(id);
     } else {
       console.log(time);
+      setselectedTime("");
       setselectedTimeId(0);
     }
   };
@@ -67,7 +71,7 @@ export default function ValitseAika() {
       selectedId && item.id === selectedId ? styles.selectedText : styles.text;
 
     return (
-      <TouchableOpacity style={itemStyle} onPress={() => handlePress(item.aika)}>
+      <TouchableOpacity style={itemStyle} onPress={() => handlePress(item.id)}>
         <Text style={textStyle}>{item.name}</Text>
       </TouchableOpacity>
     );
@@ -75,13 +79,18 @@ export default function ValitseAika() {
 
   const renderTime = ({ item }) => {
     const timeStyle =
-    selectedTimeId && item.id === selectedTimeId ? styles.selectedTime : styles.times;
+      selectedTimeId && item.id === selectedTimeId
+        ? styles.selectedTime
+        : styles.times;
     const timeTextStyle =
-    selectedTimeId && item.id === selectedTimeId
+      selectedTimeId && item.id === selectedTimeId
         ? styles.selectedTimeText
         : styles.timesText;
     return (
-      <TouchableOpacity style={timeStyle} onPress={() => handlePress2(item.id, item.aika)}>
+      <TouchableOpacity
+        style={timeStyle}
+        onPress={() => handlePress2(item.id, item.aika)}
+      >
         <Text style={timeTextStyle}>{item.aika}</Text>
       </TouchableOpacity>
     );
@@ -97,7 +106,11 @@ export default function ValitseAika() {
         numColumns={"3"}
         style={styles.list2}
       />
-      <Text style={styles.date}>18.4.2023 klo 9.00</Text>
+      <View style={{flexDirection: 'row'}}>
+        <CurrentTime style={styles.date}></CurrentTime>
+        <Text style={styles.date}> klo {selectedTime}</Text>
+      </View>
+
       <TouchableOpacity style={styles.button}>
         <Text style={{ fontSize: 35, color: "#FFFFFF" }}>Valitse</Text>
       </TouchableOpacity>
@@ -197,3 +210,4 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
 });
+
