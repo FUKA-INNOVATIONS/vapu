@@ -8,13 +8,12 @@ import {
   Dimensions,
   TextInput,
   Image,
+  Button
 } from "react-native";
-import { AirbnbRating } from "react-native-ratings";
-import Icon from "react-native-vector-icons/FontAwesome";
 
 import { Tulevat} from "../utils/lists";
 import { hexToRgba } from "./utils";
-import {Button} from '@rneui/base';
+
 
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window");

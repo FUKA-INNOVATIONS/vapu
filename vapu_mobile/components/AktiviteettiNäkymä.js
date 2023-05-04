@@ -15,7 +15,7 @@ import { Paikat } from "../utils/lists";
 const windowHeight = Dimensions.get("window").height;
 const { width: screenWidth } = Dimensions.get("window");
 
-const flatListHeight = windowHeight * 0.17;
+
 const imageHeight = windowHeight * 0.3;
 
 const AktiviteettiNäkymä = ({ route }) => {
@@ -23,7 +23,6 @@ const AktiviteettiNäkymä = ({ route }) => {
   const { data, setData } = Paikat();
   const [int, setInt] = useState(1);
   const [dataSlice, setDataSlice] = useState(data.slice(0, 1));
-  const style = id === 1 ? styles.lastItem : styles.item;
   const navigation = useNavigation();
 
 

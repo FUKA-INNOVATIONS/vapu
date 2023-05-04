@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Puuhakaverit } from "../utils/lists";
 import {Button} from '@rneui/base';
+import { useNavigation } from "@react-navigation/native";
 
 const windowHeight = Dimensions.get("window").height;
 
@@ -18,6 +19,11 @@ const imageHeight = windowHeight * 0.1;
 
 const EmployeeList = (props) => {
   const { data, setData } = Puuhakaverit();
+  const navigation = useNavigation();
+  const chooseTime = () => {
+    navigation.navigate('moro');
+    console.log("toimiiko");
+  }
 
   const renderItem = ({ item}) => {
     console.log(item.id);
@@ -29,8 +35,10 @@ const EmployeeList = (props) => {
             <Text>{item.name}</Text>
           </View>
         </TouchableOpacity>
-    <Button  style={styles.button}>lisätiedot</Button>
-    <Button  style={styles.button}>Valitse</Button>
+    <Button  style={styles.button} >lisätiedot</Button>
+          <Button  style={styles.button} onPress={chooseTime}  > valitse</Button>
+
+
         </View>
     );
   };
@@ -47,21 +55,6 @@ const EmployeeList = (props) => {
       </View>
   );
 };
-
-/*
-const renderItem = ({ item }) => {
-    const { data, setData } = Tunnetilat();
-
-    return (
-      <TouchableOpacity style={styles.item}>
-        <View style={styles.container}>
-          <Image source={item.image} style={styles.image} />
-          <Text>{item.mood}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  };
-*/
 
 const styles = StyleSheet.create({
   container: {

@@ -232,3 +232,77 @@ export const Puuhakaverit = () =>{
   ]);
   return { data, setData };
 };
+
+export const Milloin = () => {
+  const [data, setData] = useState([
+    {
+      id: "1",
+      name: "Tänään",
+    },
+    {
+      id: "2",
+      name: "Huomenna",
+    },
+    {
+      id: "3",
+      name: "Kalenteri",
+    },
+  ]);
+
+  return { data, setData };
+};
+
+export const Ajat = () => {
+  const [time, setTime] = useState([
+    {
+      id: "1",
+      aika: "8:00",
+    },
+    {
+      id: "2",
+      aika: "9:00",
+    },
+    {
+      id: "3",
+      aika: "10:00",
+    },
+    {
+      id: "4",
+      aika: "11:00",
+    },
+    {
+      id: "5",
+      aika: "12:00",
+    },
+    {
+      id: "6",
+      aika: "13:00",
+    },
+    {
+      id: "7",
+      aika: "14:00",
+    },
+    {
+      id: "8",
+      aika: "15:00",
+    },
+    {
+      id: "9",
+      aika: "16:00",
+    },
+    {
+      id: "10",
+      aika: "17:00",
+    },
+    {
+      id: "11",
+      aika: "18:00",
+    },
+    {
+      id: "12",
+      aika: "19:00",
+    },
+  ]);
+
+  return { time, setTime };
+};
