@@ -40,23 +40,24 @@ const TulevatAktiviteetit = (props) => {
 
   const { data, setData } = Tulevat();
   const renderItem = ({ item }) => (
-      <TouchableOpacity style={styles.item}>
+
+      <View style={styles.item}>
         <View style={styles.view}>
           <Text style={styles.text}>{item.name}</Text>
           <Text style={styles.textInfo}>{item.description}</Text>
-
-          <Text style={styles.kielitaito}>{item.placeandtime}</Text>
-          <View style={{flexdirection: "row"}}>
+          <Text style={styles.textInfo}>{item.placeandtime}</Text>
+          <View style={styles.buttonStyle}>
             <Button title={"lisätiedot"} style={styles.Button}></Button>
             <Button title={"peruuta"} style={styles.Button}></Button>
           </View>
 
         </View>
 
-      </TouchableOpacity>
+      </View>
   );
 
   return (
+
       <View
           style={{
             flexDirection: "column",
@@ -64,7 +65,7 @@ const TulevatAktiviteetit = (props) => {
             justifyContent: "center",
           }}
       >
-
+        <Text style={styles.title}>Tulevat Aktiviteetit </Text>
         <FlatList
             data={data}
             renderItem={renderItem}
@@ -86,12 +87,11 @@ const styles = StyleSheet.create({
   list: {
     marginTop: 5,
     height: flatHeight,
-    width: 350,
+    width: 35
   },
   item: {
     flexDirection: "row",
-    alignItems: "flex-start",
-    height: 175,
+    height: 200,
     width: 350,
     paddingTop: 10,
     marginHorizontal: 10,
@@ -100,9 +100,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   text: {
-    marginLeft: 5,
     fontSize: 30,
-    fontWeight: "bold",
+    fontWeight: "semibold",
   },
   textInfo: {
     fontSize: 15,
@@ -111,7 +110,15 @@ const styles = StyleSheet.create({
   Button: {
     borderRadius: 20,
     padding: 20,
-    flexDirection: "row"
+  },
+  buttonStyle: {
+    flexdirection: "row",
+    paddingTop: 10
+  },
+  title: {
+    fontSize: 35,
+    fontWeight: "bold",
+    paddingTop: 15
   }
 
 

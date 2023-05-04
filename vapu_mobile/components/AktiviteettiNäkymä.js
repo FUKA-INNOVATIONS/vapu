@@ -11,6 +11,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { Paikat } from "../utils/lists";
 
+
 const windowHeight = Dimensions.get("window").height;
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -23,6 +24,8 @@ const AktiviteettiNäkymä = ({ route }) => {
   const [int, setInt] = useState(1);
   const [dataSlice, setDataSlice] = useState(data.slice(0, 1));
   const style = id === 1 ? styles.lastItem : styles.item;
+  const navigation = useNavigation();
+
 
   const nextItem = () => {
     if (int === 1) {
@@ -60,12 +63,12 @@ const AktiviteettiNäkymä = ({ route }) => {
       <Image source={item.image} style={styles.image}></Image>
       <Text style={styles.address}>{item.address}</Text>
       <Text style={styles.description}>{item.description}</Text>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Valitse aktiviteetti</Text>
+      <TouchableOpacity style={styles.button} >
+        <Text style={styles.buttonText} onPress={() => navigation.navigate('työntekijäLista')}>Valitse aktiviteetti</Text>
       </TouchableOpacity>
     </TouchableOpacity>
   );
-
+//onPress={navigation.navigate('työntekijäLista')}
   return (
     <View style={styles.container}>
       <FlatList

@@ -11,7 +11,8 @@ import ListEmployees from '../components/ListEmployees';
 import Asiakaspalvelu from "../components/Asiakaspalvelu";
 import AktiviteettiLista from "../views/ValitseAktiviteetti";
 import AktiviteettiNäkymä from "../components/AktiviteettiNäkymä";
-import TulevatAktiviteetit from "../components/tulevatAktiviteetit"
+import TulevatAktiviteetit from "../components/tulevatAktiviteetit";
+import EmployeeList from '../components/TyöntekijäLista';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,9 @@ const StackScreen = () => {
       <Stack.Screen name="Aktiviteetit" component={AktiviteettiLista}/>
       <Stack.Screen name="AktiviteettiNäkymä" component={AktiviteettiNäkymä}/>
       <Stack.Screen name="tulevatAktiviteetit" component={TulevatAktiviteetit}/>
+      <Stack.Screen name="työntekijäLista" component={EmployeeList}/>
+
+
     </Stack.Navigator>
   );
 };

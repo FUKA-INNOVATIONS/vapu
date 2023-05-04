@@ -197,3 +197,38 @@ export const Tulevat = () =>{
   ]);
   return { data, setData };
 };
+
+
+export const Puuhakaverit = () =>{
+  const [data, setData] = useState([
+    {
+      id:"1",
+      name: "Sandra",
+      image: require("../assets/emoji1.png"),
+
+
+    },
+    {
+      id:"2",
+      name: "Team perhe",
+      image: require("../assets/emoji3.png"),
+
+
+    },
+    {
+      id:"3",
+      name: "jan",
+      image: require("../assets/emoji4.png"),
+
+
+    },
+    {
+      id:"4",
+      name: "Annika",
+      image: require("../assets/emoji2.png"),
+
+
+    },
+  ]);
+  return { data, setData };
+};
