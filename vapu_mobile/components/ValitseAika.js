@@ -6,6 +6,7 @@ import {
   View,
   Dimensions,
   TouchableOpacity,
+  Alert
 } from "react-native";
 import { Milloin } from "../utils/lists";
 import { Ajat } from "../utils/lists";
@@ -63,6 +64,17 @@ export default function ValitseAika() {
     }
   };
 
+  const makeReservation = () =>{
+    Alert.alert('Kiitos varauksesta', 'Tiedot lähetetty sähköpostiisi', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
+    navigation.navigate('Home');
+  }
   const renderItem = ({ item }) => {
     //    const itemStyle = selectedId && item.id === selectedId ? styles.selectedItem : styles.item;
     const itemStyle =
@@ -111,7 +123,7 @@ export default function ValitseAika() {
         <Text style={styles.date}> klo {selectedTime}</Text>
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={makeReservation}>
         <Text style={{ fontSize: 35, color: "#FFFFFF" }}>Valitse</Text>
       </TouchableOpacity>
     </View>

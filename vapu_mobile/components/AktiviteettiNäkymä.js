@@ -54,7 +54,7 @@ const AktiviteettiNäkymä = ({ route }) => {
   };
 
   const chooseTime = () => {
-    navigation.navigate('ValitseAika');
+    navigation.navigate('EmployeeList');
   }
 
   const renderItem = ({ item }) => (

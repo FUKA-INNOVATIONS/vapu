@@ -248,7 +248,6 @@ export const Paikat = () => {
   return { data, setData };
 };
 
-
 export const Kal = () => {
   const [data, setData] = useState([
     {
@@ -346,5 +345,49 @@ export const Kal = () => {
     },
   ]);
 
+  return { data, setData };
+};
+
+export const Tulevat = () => {
+  const [data, setData] = useState([
+    {
+      id: "1",
+      name: "Bingo",
+      description: "Puotilan vanhainkoti",
+      placeandtime: "18.4.2023  Klo 9.00",
+    },
+    {
+      id: "2",
+      name: "Kävely rannassa",
+      description: "Aurinkoranta, Vuosaari",
+      placeandtime: "19.4.2023  Klo 9.00",
+    },
+  ]);
+  return { data, setData };
+};
+
+export const Puuhakaverit = () => {
+  const [data, setData] = useState([
+    {
+      id: "1",
+      name: "Sandra",
+      image: require("../assets/emoji1.png"),
+    },
+    {
+      id: "2",
+      name: "Team perhe",
+      image: require("../assets/emoji3.png"),
+    },
+    {
+      id: "3",
+      name: "jan",
+      image: require("../assets/emoji4.png"),
+    },
+    {
+      id: "4",
+      name: "Annika",
+      image: require("../assets/emoji2.png"),
+    },
+  ]);
   return { data, setData };
 };
